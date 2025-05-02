@@ -1,13 +1,11 @@
 import type { JSX } from "react"
 import { useState } from "react"
-import styles from "./Quotes.module.css"
-import { useGetQuotesQuery } from "./quotesApiSlice"
+import styles from "./Posts.module.css"
+import { useGetPostsQuery } from "./postsApiSlice"
 
 export const Quotes = (): JSX.Element | null => {
-  const [numberOfQuotes, setNumberOfQuotes] = useState(10)
   // Using a query hook automatically fetches data and returns query values
-  const { data, isError, isLoading, isSuccess } =
-    useGetQuotesQuery(numberOfQuotes)
+  const { data, isError, isLoading, isSuccess } = useGetPostsQuery()
 
   if (isError) {
     return (
