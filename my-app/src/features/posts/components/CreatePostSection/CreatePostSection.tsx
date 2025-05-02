@@ -17,6 +17,7 @@ const CreatePostSection = () => {
         onChange={e => {
           setTitle(e.target.value)
         }}
+        placeholder="Hello world"
       />
       <TextArea
         label="Content"
@@ -25,6 +26,7 @@ const CreatePostSection = () => {
         onChange={e => {
           setContent(e.target.value)
         }}
+        placeholder="Content here"
       />
     </div>
   )
