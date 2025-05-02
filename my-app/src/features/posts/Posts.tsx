@@ -3,7 +3,7 @@ import styles from "./Posts.module.css"
 import { useGetPostsQuery } from "./postsApiSlice"
 import CreatePostSection from "./components/CreatePostSection/CreatePostSection"
 
-export const Quotes = (): JSX.Element | null => {
+export const Posts = (): JSX.Element | null => {
   // Using a query hook automatically fetches data and returns query values
   const { data, isError, isLoading, isSuccess } = useGetPostsQuery()
 
