@@ -1,0 +1,29 @@
+.postContent {
+  border: 1px solid var(--color-neutral-tertiary);
+  border-radius: 0 0 16px 16px;
+  padding: 24px;
+}
+
+.bodyContent {
+  font-size: 1.125rem;
+  font-weight: 400;
+  text-align: left;
+}
+
+.contentHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.author {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-neutral-quaternary);
+}
+
+.date {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--color-neutral-quaternary);
+}
