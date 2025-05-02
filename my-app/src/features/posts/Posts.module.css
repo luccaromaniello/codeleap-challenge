@@ -16,6 +16,10 @@
   font-size: 1.375rem;
 }
 
+.content {
+  padding: 24px;
+}
+
 .postsSection {
   display: flex;
   flex-direction: column;
