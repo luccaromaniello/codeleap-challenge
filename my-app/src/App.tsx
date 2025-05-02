@@ -1,5 +1,5 @@
 import "./App.css"
-import { Quotes } from "./features/quotes/Quotes"
+import { Quotes } from "./features/posts/Posts"
 
 export const App = () => (
   <div className="App">
