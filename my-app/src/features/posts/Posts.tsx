@@ -3,6 +3,7 @@ import styles from "./Posts.module.css"
 import { useGetPostsQuery } from "./postsApiSlice"
 import CreatePostSection from "./components/CreatePostSection/CreatePostSection"
 import Header from "../../components/Header/Header"
+import PostContent from "./components/PostContent/PostContent"
 
 export const Posts = (): JSX.Element | null => {
   // Using a query hook automatically fetches data and returns query values
@@ -32,12 +33,10 @@ export const Posts = (): JSX.Element | null => {
           <CreatePostSection />
           <div className={styles.postsSection}>
             {data.posts.map(({ id, title, body }) => (
-              <blockquote key={id}>
+              <div key={id}>
                 <Header title={title} />
-                <footer>
-                  <cite>{body}</cite>
-                </footer>
-              </blockquote>
+                <PostContent content={body} />
+              </div>
             ))}
           </div>
         </div>
