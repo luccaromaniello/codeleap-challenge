@@ -2,6 +2,7 @@ import { useState } from "react"
 import Input from "../../../../components/Input/Input"
 import TextArea from "../../../../components/TextArea/TextArea"
 import styles from "./CreatePostSection.module.css"
+import Button from "../../../../components/Button/Button"
 
 const CreatePostSection = () => {
   const [title, setTitle] = useState("")
@@ -28,6 +29,9 @@ const CreatePostSection = () => {
         }}
         placeholder="Content here"
       />
+      <div className={styles.actions}>
+        <Button text="Create" />
+      </div>
     </div>
   )
 }

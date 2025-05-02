@@ -11,6 +11,7 @@
   --input-border: 1px solid var(--color-neutral-quaternary);
   --input-border-radius: 8px;
   --input-font-size: 0.875rem;
+  --button-border-radius: 8px;
 }
 
 body {

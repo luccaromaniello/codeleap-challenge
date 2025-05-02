@@ -15,7 +15,7 @@ const Textarea: React.FC<TextareaProps> = ({
   value,
   onChange,
   placeholder,
-  rows = 4,
+  rows = 3,
 }) => {
   return (
     <div className={styles.textAreaContainer}>

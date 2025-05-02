@@ -13,3 +13,9 @@
   border-radius: 16px;
   text-align: left;
 }
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
