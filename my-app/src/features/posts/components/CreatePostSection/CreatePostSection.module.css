@@ -1,0 +1,12 @@
+.heading {
+  color: var(--color-primary-text);
+  font-weight: 700;
+  font-size: 1.375rem;
+}
+
+.createPostSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+}

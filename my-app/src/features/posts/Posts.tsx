@@ -1,6 +1,7 @@
 import type { JSX } from "react"
 import styles from "./Posts.module.css"
 import { useGetPostsQuery } from "./postsApiSlice"
+import CreatePostSection from "./components/CreatePostSection/CreatePostSection"
 
 export const Quotes = (): JSX.Element | null => {
   // Using a query hook automatically fetches data and returns query values
@@ -26,9 +27,7 @@ export const Quotes = (): JSX.Element | null => {
     return (
       <div className={styles.container}>
         <div className={styles.header}>CodeLeap Network</div>
-        <div className={styles.createPostSection}>
-          <h2 className={styles.heading}>What's on your mind?</h2>
-        </div>
+        <CreatePostSection />
         <div className={styles.postsSection}>
           {data.posts.map(({ id, title, body }) => (
             <blockquote key={id}>

@@ -16,7 +16,7 @@
   font-size: 1.375rem;
 }
 
-.posts-section {
+.postsSection {
   display: flex;
   flex-direction: column;
 }
