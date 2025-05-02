@@ -27,16 +27,18 @@ export const Posts = (): JSX.Element | null => {
     return (
       <div className={styles.container}>
         <div className={styles.header}>CodeLeap Network</div>
-        <CreatePostSection />
-        <div className={styles.postsSection}>
-          {data.posts.map(({ id, title, body }) => (
-            <blockquote key={id}>
-              {title}
-              <footer>
-                <cite>{body}</cite>
-              </footer>
-            </blockquote>
-          ))}
+        <div className={styles.content}>
+          <CreatePostSection />
+          <div className={styles.postsSection}>
+            {data.posts.map(({ id, title, body }) => (
+              <blockquote key={id}>
+                {title}
+                <footer>
+                  <cite>{body}</cite>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
         </div>
       </div>
     )
