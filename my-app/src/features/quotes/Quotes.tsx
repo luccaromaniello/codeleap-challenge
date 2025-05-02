@@ -3,8 +3,6 @@ import { useState } from "react"
 import styles from "./Quotes.module.css"
 import { useGetQuotesQuery } from "./quotesApiSlice"
 
-const options = [5, 10, 20, 30]
-
 export const Quotes = (): JSX.Element | null => {
   const [numberOfQuotes, setNumberOfQuotes] = useState(10)
   // Using a query hook automatically fetches data and returns query values
@@ -30,25 +28,11 @@ export const Quotes = (): JSX.Element | null => {
   if (isSuccess) {
     return (
       <div className={styles.container}>
-        <h3>Select the Quantity of Quotes to Fetch:</h3>
-        <select
-          className={styles.select}
-          value={numberOfQuotes}
-          onChange={e => {
-            setNumberOfQuotes(Number(e.target.value))
-          }}
-        >
-          {options.map(option => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-        {data.quotes.map(({ author, quote, id }) => (
+        {data.posts.map(({ id, title, body }) => (
           <blockquote key={id}>
-            &ldquo;{quote}&rdquo;
+            {title}
             <footer>
-              <cite>{author}</cite>
+              <cite>{body}</cite>
             </footer>
           </blockquote>
         ))}
