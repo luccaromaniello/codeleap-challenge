@@ -26,6 +26,9 @@ export const Quotes = (): JSX.Element | null => {
     return (
       <div className={styles.container}>
         <div className={styles.header}>CodeLeap Network</div>
+        <div className={styles.createPostSection}>
+          <h2 className={styles.heading}>What's on your mind?</h2>
+        </div>
         <div className={styles.postsSection}>
           {data.posts.map(({ id, title, body }) => (
             <blockquote key={id}>
