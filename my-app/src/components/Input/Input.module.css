@@ -1,3 +1,13 @@
-.label {
-  
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--input-gap);
+  text-align: start;
+}
+
+.input {
+  padding: var(--input-padding);
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
+  font-size: 0.875rem;
 }

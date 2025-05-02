@@ -1,8 +1,16 @@
 :root {
   --color-neutral-white: #ffffff;
   --color-neutral-secondary: #dddddd;
+  --color-neutral-tertiary: #999999;
+  --color-neutral-quaternary: #777777;
+  --color-neutral-quinary: #cccccc;
   --color-primary: #7695ec;
   --color-primary-text: #000000;
+  --input-gap: 8px;
+  --input-padding: 8px 12px;
+  --input-border: 1px solid var(--color-neutral-quaternary);
+  --input-border-radius: 8px;
+  --input-font-size: 0.875rem;
 }
 
 body {
@@ -11,4 +19,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-neutral-secondary);
+}
+
+.label {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+::placeholder {
+  color: var(--color-neutral-quinary);
+  opacity: 1; /* Firefox */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }

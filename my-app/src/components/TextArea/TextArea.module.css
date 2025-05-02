@@ -1,0 +1,15 @@
+.textAreaContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--input-gap);
+  text-align: left;
+}
+
+.textArea {
+  padding: var(--input-padding);
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
+  resize: none;
+  font-family: "Roboto", sans-serif;
+  font-size: var(--input-font-size);
+}

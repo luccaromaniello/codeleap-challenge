@@ -18,8 +18,8 @@ const Textarea: React.FC<TextareaProps> = ({
   rows = 4,
 }) => {
   return (
-    <div>
-      <label htmlFor={name} className={styles.label}>
+    <div className={styles.textAreaContainer}>
+      <label htmlFor={name} className="label">
         {label}
       </label>
       <textarea
@@ -29,7 +29,7 @@ const Textarea: React.FC<TextareaProps> = ({
         onChange={onChange}
         placeholder={placeholder}
         rows={rows}
-        className={styles.textarea}
+        className={styles.textArea}
       />
     </div>
   )

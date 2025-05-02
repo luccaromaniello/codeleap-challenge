@@ -18,8 +18,8 @@ const Input: React.FC<InputProps> = ({
   placeholder,
 }) => {
   return (
-    <div style={{ marginBottom: "1rem" }}>
-      <label htmlFor={name} className={styles.label}>
+    <div className={styles.inputContainer}>
+      <label htmlFor={name} className="label">
         {label}
       </label>
       <input
