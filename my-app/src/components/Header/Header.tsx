@@ -12,7 +12,10 @@ enum HeaderType {
   PAGE = 1,
 }
 
-const Header: React.FC<HeaderProps> = ({ title, type = 0 }) => {
+const Header: React.FC<HeaderProps> = ({
+  title,
+  type = HeaderType.SECTION,
+}) => {
   return (
     <div
       className={`${styles.header} ${type == HeaderType.SECTION ? styles.postHeader : styles.pageHeader}`}
