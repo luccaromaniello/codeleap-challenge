@@ -1,0 +1,31 @@
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.postHeader {
+  border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.actionIcons {
+  width: 24px;
+  height: 24px;
+}
+
+.actionIcons:hover {
+  color: var(--color-neutral-secondary);
+}
+
+.actionButton {
+  background-color: var(--color-primary);
+  border: none;
+}

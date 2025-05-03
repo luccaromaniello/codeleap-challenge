@@ -3,11 +3,9 @@ import styles from "./Posts.module.css"
 import { useGetPostsQuery } from "./postsApiSlice"
 import CreatePostSection from "./components/CreatePostSection/CreatePostSection"
 import Header from "../../components/Header/Header"
-import PostContent from "./components/PostContent/PostContent"
-import { useAppSelector } from "../../app/hooks"
+import Post from "./components/Post/Post"
 
 export const Posts = (): JSX.Element | null => {
-  const currentUser = useAppSelector(state => state.user.username)
   const { data, isError, isLoading, isSuccess } = useGetPostsQuery()
 
   if (isError) {
@@ -35,14 +33,16 @@ export const Posts = (): JSX.Element | null => {
           <div className={styles.postsSection}>
             {data.length != 0 ? (
               data.map(({ id, username, title, content, createdAt }) => (
-                <div key={id}>
-                  <Header title={title} editable={username === currentUser} />
-                  <PostContent
-                    author={username}
-                    content={content}
-                    date={createdAt}
-                  />
-                </div>
+                <Post
+                  key={id}
+                  post={{
+                    id: id,
+                    username: username,
+                    title: title,
+                    content: content,
+                    createdAt: createdAt,
+                  }}
+                />
               ))
             ) : (
               <p>No posts to show.</p>

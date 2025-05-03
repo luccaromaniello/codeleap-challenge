@@ -2,9 +2,10 @@ import type { Action, ThunkAction } from "@reduxjs/toolkit"
 import { combineSlices, configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
 import { userSlice } from "../features/user/userSlice"
+import { postsSlice } from "../features/posts/postsSlice"
 import { postsApiSlice } from "../features/posts/postsApiSlice"
 
-const rootReducer = combineSlices(userSlice, postsApiSlice)
+const rootReducer = combineSlices(userSlice, postsApiSlice, postsSlice)
 export type RootState = ReturnType<typeof rootReducer>
 
 export const makeStore = (preloadedState?: Partial<RootState>) => {
