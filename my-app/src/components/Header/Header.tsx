@@ -5,6 +5,7 @@ import editIcon from "../../assets/icons/edit.svg"
 type HeaderProps = {
   title: string
   type?: HeaderType
+  editable: boolean
 }
 
 enum HeaderType {
@@ -15,13 +16,14 @@ enum HeaderType {
 const Header: React.FC<HeaderProps> = ({
   title,
   type = HeaderType.SECTION,
+  editable = false,
 }) => {
   return (
     <div
       className={`${styles.header} ${type == HeaderType.SECTION ? styles.postHeader : styles.pageHeader}`}
     >
       {title}
-      {type == HeaderType.SECTION ? (
+      {type == HeaderType.SECTION && editable ? (
         <div className={styles.actions}>
           <img
             className={styles.actionIcons}

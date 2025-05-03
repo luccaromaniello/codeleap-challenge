@@ -7,6 +7,7 @@ import PostContent from "./components/PostContent/PostContent"
 
 export const Posts = (): JSX.Element | null => {
   // Using a query hook automatically fetches data and returns query values
+  const currentUser = "test98"
   const { data, isError, isLoading, isSuccess } = useGetPostsQuery()
 
   if (isError) {
@@ -32,10 +33,10 @@ export const Posts = (): JSX.Element | null => {
         <div className={styles.content}>
           <CreatePostSection />
           <div className={styles.postsSection}>
-            {data.posts.map(({ id, title, body }) => (
+            {data.results.map(({ id, username, title, content }) => (
               <div key={id}>
-                <Header title={title} />
-                <PostContent content={body} />
+                <Header title={title} editable={username === currentUser} />
+                <PostContent author={username} content={content} />
               </div>
             ))}
           </div>
