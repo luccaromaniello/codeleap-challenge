@@ -12,7 +12,7 @@ const Button: React.FC<ButtonProps> = ({ text, onClick, disabled = false }) => {
       type="submit"
       onClick={onClick}
       disabled={disabled}
-      className={styles.button}
+      className={`${styles.button} ${disabled ? styles.disabled : ""}`}
     >
       {text}
     </button>
