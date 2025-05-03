@@ -10,7 +10,6 @@ import ActionButtons from "../../components/ActionButtons/ActionButtons"
 const UserModal: React.FC = () => {
   const dispatch = useAppDispatch()
   const isOpen = useAppSelector(state => state.user.isOpen)
-  const username = useAppSelector(state => state.user.username)
   const [user, setUser] = useState("")
   const isFormValid = user.trim() !== ""
 
@@ -35,7 +34,7 @@ const UserModal: React.FC = () => {
           onChange={e => {
             setUser(e.target.value)
           }}
-          placeholder="Hello world"
+          placeholder="John doe"
         />
         <ActionButtons>
           <Button text="ENTER" disabled={!isFormValid} onClick={handleSubmit} />
