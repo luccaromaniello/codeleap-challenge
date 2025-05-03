@@ -33,10 +33,14 @@ export const Posts = (): JSX.Element | null => {
         <div className={styles.content}>
           <CreatePostSection />
           <div className={styles.postsSection}>
-            {data.results.map(({ id, username, title, content }) => (
+            {data.map(({ id, username, title, content, createdAt }) => (
               <div key={id}>
                 <Header title={title} editable={username === currentUser} />
-                <PostContent author={username} content={content} />
+                <PostContent
+                  author={username}
+                  content={content}
+                  date={createdAt}
+                />
               </div>
             ))}
           </div>
