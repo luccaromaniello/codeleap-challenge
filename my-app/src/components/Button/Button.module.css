@@ -1,5 +1,4 @@
 .button {
-  text-align: center;
   background-color: var(--color-primary);
   padding: 8px 32px;
   border: none;
@@ -8,6 +7,15 @@
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
+}
+
+.button {
+  text-align: center;
+}
+
+.text {
+  border: 2px solid var(--color-neutral-white);
+  color: var(--color-neutral-white);
 }
 
 .button:hover {
