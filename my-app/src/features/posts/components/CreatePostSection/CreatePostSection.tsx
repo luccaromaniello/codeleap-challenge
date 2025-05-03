@@ -17,7 +17,6 @@ const CreatePostSection = () => {
   return (
     <form
       className={styles.createPostSection}
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={async (e: React.FormEvent) => {
         e.preventDefault()
         reset()

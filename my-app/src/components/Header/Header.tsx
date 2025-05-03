@@ -5,7 +5,7 @@ import editIcon from "../../assets/icons/edit.svg"
 type HeaderProps = {
   title: string
   type?: HeaderType
-  editable: boolean
+  editable?: boolean
 }
 
 enum HeaderType {

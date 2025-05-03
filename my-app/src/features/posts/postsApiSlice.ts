@@ -1,11 +1,21 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
+type Posts = Post[]
+
 type Post = {
   id: number
   username: string
   title: string
   content: string
-  
+  createdAt: string
+}
+
+type ApiPost = {
+  id: number
+  username: string
+  title: string
+  content: string
+  created_datetime: string
 }
 
 type NewPost = {
@@ -14,23 +24,31 @@ type NewPost = {
   body: string
 }
 
+// This is not being used in this example since we're only worried about the posts list. Ideally, the response might contain other information that could be mapped.
 type PostsApiResponse = {
-  results: Post[]
+  results: ApiPost[]
   total: number
   skip: number
   limit: number
 }
 
-// Define a service using a base URL and expected endpoints
 export const postsApiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://dev.codeleap.co.uk/careers/" }),
   reducerPath: "postsApi",
-  // Tag types are used for caching and invalidation.
   tagTypes: ["Posts"],
   endpoints: build => ({
-    getPosts: build.query<PostsApiResponse, void>({
+    getPosts: build.query<Posts, void>({
       query: () => "",
-      providesTags: (_result, _error, id) => [{ type: "Posts", id }],
+      transformResponse: (response: { results: ApiPost[] }): Posts => {
+        return response.results.map(responsePost => ({
+          id: responsePost.id,
+          username: responsePost.username,
+          title: responsePost.title,
+          content: responsePost.content,
+          createdAt: responsePost.created_datetime, // Map "created_datetime" to "createdAt"
+        }))
+      },
+      providesTags: () => [{ type: "Posts", id: "LIST" }],
     }),
     createPost: build.mutation<Post, NewPost>({
       query: newPost => ({
