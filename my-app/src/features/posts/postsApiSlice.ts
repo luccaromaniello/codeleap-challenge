@@ -6,6 +6,12 @@ type Post = {
   body: string
 }
 
+type NewPost = {
+  userId: string
+  title: string
+  body: string
+}
+
 type PostsApiResponse = {
   posts: Post[]
   total: number
@@ -20,14 +26,19 @@ export const postsApiSlice = createApi({
   // Tag types are used for caching and invalidation.
   tagTypes: ["Posts"],
   endpoints: build => ({
-    // Supply generics for the return type (in this case `QuotesApiResponse`)
-    // and the expected query argument. If there is no argument, use `void`
-    // for the argument type instead.
     getPosts: build.query<PostsApiResponse, void>({
       query: () => "",
       providesTags: (_result, _error, id) => [{ type: "Posts", id }],
     }),
+    createPost: build.mutation<Post, NewPost>({
+      query: newPost => ({
+        url: "/add",
+        method: "POST",
+        body: newPost,
+      }),
+      invalidatesTags: [{ type: "Posts", id: "LIST" }],
+    }),
   }),
 })
 
-export const { useGetPostsQuery } = postsApiSlice
+export const { useGetPostsQuery, useCreatePostMutation } = postsApiSlice
