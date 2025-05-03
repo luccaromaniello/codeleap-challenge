@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 type Posts = Post[]
 
-type Post = {
+export type Post = {
   id: number
   username: string
   title: string
@@ -58,7 +58,18 @@ export const postsApiSlice = createApi({
       }),
       invalidatesTags: [{ type: "Posts", id: "LIST" }],
     }),
+    deletePost: build.mutation<undefined, number>({
+      query: postId => ({
+        url: "/" + postId.toString(),
+        method: "DELETE",
+      }),
+      invalidatesTags: [{ type: "Posts", id: "LIST" }],
+    }),
   }),
 })
 
-export const { useGetPostsQuery, useCreatePostMutation } = postsApiSlice
+export const {
+  useGetPostsQuery,
+  useCreatePostMutation,
+  useDeletePostMutation,
+} = postsApiSlice

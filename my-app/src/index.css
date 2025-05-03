@@ -49,3 +49,23 @@ h6 {
   font-weight: 700;
   font-size: 1.375rem;
 }
+
+.content-header {
+  background-color: var(--color-primary);
+  text-align: left;
+  color: var(--color-neutral-white);
+  font-weight: 700;
+  font-size: 1.375rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.header-title-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
