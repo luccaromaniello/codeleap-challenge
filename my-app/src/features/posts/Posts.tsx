@@ -6,7 +6,6 @@ import Header from "../../components/Header/Header"
 import PostContent from "./components/PostContent/PostContent"
 
 export const Posts = (): JSX.Element | null => {
-  // Using a query hook automatically fetches data and returns query values
   const currentUser = "test98"
   const { data, isError, isLoading, isSuccess } = useGetPostsQuery()
 
@@ -33,16 +32,20 @@ export const Posts = (): JSX.Element | null => {
         <div className={styles.content}>
           <CreatePostSection />
           <div className={styles.postsSection}>
-            {data.map(({ id, username, title, content, createdAt }) => (
-              <div key={id}>
-                <Header title={title} editable={username === currentUser} />
-                <PostContent
-                  author={username}
-                  content={content}
-                  date={createdAt}
-                />
-              </div>
-            ))}
+            {data.length != 0 ? (
+              data.map(({ id, username, title, content, createdAt }) => (
+                <div key={id}>
+                  <Header title={title} editable={username === currentUser} />
+                  <PostContent
+                    author={username}
+                    content={content}
+                    date={createdAt}
+                  />
+                </div>
+              ))
+            ) : (
+              <p>No posts to show.</p>
+            )}
           </div>
         </div>
       </div>
