@@ -19,9 +19,9 @@ type ApiPost = {
 }
 
 type NewPost = {
-  userId: string
+  username: string
   title: string
-  body: string
+  content: string
 }
 
 // This is not being used in this example since we're only worried about the posts list. Ideally, the response might contain other information that could be mapped.
@@ -52,7 +52,7 @@ export const postsApiSlice = createApi({
     }),
     createPost: build.mutation<Post, NewPost>({
       query: newPost => ({
-        url: "/add",
+        url: "/",
         method: "POST",
         body: newPost,
       }),
