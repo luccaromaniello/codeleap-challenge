@@ -17,5 +17,17 @@
 .actions {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: space-between;
+}
+
+.feedback {
+  font-size: 0.875rem;
+}
+
+.feedbackSuccess {
+  color: var(--color-feedback-success);
+}
+
+.feedbackError {
+  color: var(--color-feedback-error);
 }

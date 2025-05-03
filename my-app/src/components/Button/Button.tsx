@@ -4,9 +4,15 @@ type ButtonProps = {
   text: string
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean
+  loading?: boolean
 }
 
-const Button: React.FC<ButtonProps> = ({ text, onClick, disabled = false }) => {
+const Button: React.FC<ButtonProps> = ({
+  text,
+  onClick,
+  disabled = false,
+  loading = false,
+}) => {
   return (
     <button
       type="submit"
@@ -14,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({ text, onClick, disabled = false }) => {
       disabled={disabled}
       className={`${styles.button} ${disabled ? styles.disabled : ""}`}
     >
-      {text}
+      {loading ? "Creating" : text}
     </button>
   )
 }

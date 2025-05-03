@@ -6,6 +6,8 @@
   --color-neutral-quinary: #cccccc;
   --color-primary: #7695ec;
   --color-primary-text: #000000;
+  --color-feedback-success: #47b960;
+  --color-feedback-error: #ff5151;
   --input-gap: 8px;
   --input-padding: 8px 12px;
   --input-border: 1px solid var(--color-neutral-quaternary);
