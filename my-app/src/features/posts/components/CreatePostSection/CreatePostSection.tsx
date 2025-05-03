@@ -7,6 +7,7 @@ import Button from "../../../../components/Button/Button"
 const CreatePostSection = () => {
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
+  const isFormValid = title.trim() !== "" && content.trim() !== ""
 
   return (
     <div className={styles.createPostSection}>
@@ -30,7 +31,7 @@ const CreatePostSection = () => {
         placeholder="Content here"
       />
       <div className={styles.actions}>
-        <Button text="Create" />
+        <Button text="Create" disabled={!isFormValid} />
       </div>
     </div>
   )
