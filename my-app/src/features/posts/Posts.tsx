@@ -4,9 +4,10 @@ import { useGetPostsQuery } from "./postsApiSlice"
 import CreatePostSection from "./components/CreatePostSection/CreatePostSection"
 import Header from "../../components/Header/Header"
 import PostContent from "./components/PostContent/PostContent"
+import { useAppSelector } from "../../app/hooks"
 
 export const Posts = (): JSX.Element | null => {
-  const currentUser = "test98"
+  const currentUser = useAppSelector(state => state.user.username)
   const { data, isError, isLoading, isSuccess } = useGetPostsQuery()
 
   if (isError) {
