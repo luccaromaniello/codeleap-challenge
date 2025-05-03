@@ -7,8 +7,14 @@
   color: var(--color-neutral-white);
   font-size: 1rem;
   font-weight: 700;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
 }
 
 .disabled {
   background-color: var(--color-neutral-tertiary);
+  cursor: not-allowed;
 }
