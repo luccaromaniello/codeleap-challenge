@@ -9,7 +9,7 @@ type PostContentProps = {
 
 const PostContent: React.FC<PostContentProps> = ({
   content,
-  author = "Lucca",
+  author,
   date = Date.now(),
 }) => {
   return (
