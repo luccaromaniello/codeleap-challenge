@@ -21,11 +21,12 @@
   height: 24px;
 }
 
-.actionIcons:hover {
-  color: var(--color-neutral-secondary);
-}
-
 .actionButton {
   background-color: var(--color-primary);
   border: none;
+}
+
+.actionButton:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
