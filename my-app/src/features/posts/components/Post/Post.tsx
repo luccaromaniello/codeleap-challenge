@@ -1,4 +1,4 @@
-import { openModal, setPostId } from "../../postsSlice"
+import { ModalType, openModal } from "../../postsSlice"
 import { type Post as PostInfo } from "../../postsApiSlice"
 import PostContent from "../PostContent/PostContent"
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks"
@@ -24,8 +24,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
             <button
               className={styles.actionButton}
               onClick={() => {
-                dispatch(setPostId(post.id))
-                dispatch(openModal())
+                dispatch(openModal({ type: ModalType.DELETE, postId: post.id }))
               }}
             >
               <img
@@ -34,7 +33,12 @@ const Post: React.FC<PostProps> = ({ post }) => {
                 alt="Delete action"
               />
             </button>
-            <button className={styles.actionButton}>
+            <button
+              className={styles.actionButton}
+              onClick={() => {
+                dispatch(openModal({ type: ModalType.EDIT, postId: post.id }))
+              }}
+            >
               <img
                 className={styles.actionIcons}
                 src={editIcon}

@@ -18,6 +18,12 @@ type ApiPost = {
   created_datetime: string
 }
 
+type UpdatePost = {
+  id: string
+  title: string
+  content: string
+}
+
 type NewPost = {
   username: string
   title: string
@@ -65,6 +71,17 @@ export const postsApiSlice = createApi({
       }),
       invalidatesTags: [{ type: "Posts", id: "LIST" }],
     }),
+    editPost: build.mutation<undefined, UpdatePost>({
+      query: post => ({
+        url: "/" + post.id.toString() + "/",
+        method: "PATCH",
+        body: {
+          title: post.title,
+          content: post.content,
+        },
+      }),
+      invalidatesTags: [{ type: "Posts", id: "LIST" }],
+    }),
   }),
 })
 
@@ -72,4 +89,5 @@ export const {
   useGetPostsQuery,
   useCreatePostMutation,
   useDeletePostMutation,
+  useEditPostMutation,
 } = postsApiSlice
