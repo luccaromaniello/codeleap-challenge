@@ -39,7 +39,7 @@ const EditPostModal: React.FC = () => {
           reset()
           try {
             await editPost({
-              id: postId,
+              id: postId.toString(),
               title: title,
               content: content,
             }).unwrap()
