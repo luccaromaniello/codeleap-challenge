@@ -3,19 +3,24 @@ import styles from "./EditPostModal.module.css"
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks"
 import Button from "../../../../components/Button/Button"
 import ActionButtons from "../../../../components/ActionButtons/ActionButtons"
-import { useEditPostMutation } from "../../postsApiSlice"
+import { postsApiSlice, useEditPostMutation } from "../../postsApiSlice"
 import { ButtonType } from "../../../../components/Button/Button"
 import { closeModal } from "../../postsSlice"
+import Input from "../../../../components/Input/Input"
+import TextArea from "../../../../components/TextArea/TextArea"
 import { useState } from "react"
 
 const EditPostModal: React.FC = () => {
   const postId = useAppSelector(state => state.posts.postId)
+  const post = useAppSelector(
+    state => postsApiSlice.endpoints.getPosts.select()(state)?.data ?? [],
+  ).find(p => p.id === postId)
   const [editPost, { isLoading, reset }] = useEditPostMutation()
   const isOpen = useAppSelector(state => state.posts.isOpen)
-  const modalType = useAppSelector(state => state.posts.type)
-  const [title, setTitle] = useState("")
-  const [content, setContent] = useState("")
   const dispatch = useAppDispatch()
+  const [title, setTitle] = useState(post?.title ?? "")
+  const [content, setContent] = useState(post?.content ?? "")
+  const isFormValid = title.trim() !== "" && content.trim() !== ""
 
   return (
     <div
@@ -45,6 +50,26 @@ const EditPostModal: React.FC = () => {
         }}
       >
         <h1 className="heading">Edit item</h1>
+        <Input
+          label="Title"
+          name="title"
+          value={title}
+          onChange={e => {
+            reset()
+            setTitle(e.target.value)
+          }}
+          placeholder="Hello world"
+        />
+        <TextArea
+          label="Content"
+          name="content"
+          value={content}
+          onChange={e => {
+            reset()
+            setContent(e.target.value)
+          }}
+          placeholder="Content here"
+        />
         <ActionButtons>
           <Button
             semanticType="button"
@@ -59,6 +84,7 @@ const EditPostModal: React.FC = () => {
             text="Save"
             loadingText="Saving"
             loading={isLoading}
+            disabled={!isFormValid}
           />
         </ActionButtons>
       </form>
