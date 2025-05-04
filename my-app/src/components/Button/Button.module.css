@@ -29,6 +29,11 @@
   color: var(--color-neutral-white);
 }
 
+.success {
+  background-color: var(--color-feedback-success);
+  color: var(--color-neutral-white);
+}
+
 .button:hover {
   opacity: 0.8;
 }

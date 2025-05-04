@@ -3,17 +3,17 @@ import { createSlice } from "@reduxjs/toolkit"
 
 type ModalPostState = {
   isOpen: boolean
-  type: PostType
+  type: ModalType
   postId: number
 }
 
-enum PostType {
+export enum ModalType {
   EDIT = 0,
   DELETE = 1,
 }
 
 const initialState: ModalPostState = {
-  type: PostType.EDIT,
+  type: ModalType.EDIT,
   isOpen: false,
   postId: 0,
 }
@@ -22,16 +22,18 @@ export const postsSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
-    openModal(state) {
+    openModal(
+      state,
+      action: PayloadAction<{ type: ModalType; postId: number }>,
+    ) {
       state.isOpen = true
+      state.type = action.payload.type
+      state.postId = action.payload.postId
     },
-    closeModal(state) {
-      state.isOpen = false
-    },
-    setPostId(state, action: PayloadAction<number>) {
-      state.postId = action.payload
+    closeModal() {
+      return initialState
     },
   },
 })
 
-export const { openModal, closeModal, setPostId } = postsSlice.actions
+export const { openModal, closeModal } = postsSlice.actions
