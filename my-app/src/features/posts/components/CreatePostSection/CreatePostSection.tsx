@@ -12,8 +12,7 @@ const CreatePostSection = () => {
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
   const isFormValid = title.trim() !== "" && content.trim() !== ""
-  const [createPost, { isLoading, isSuccess, error, reset }] =
-    useCreatePostMutation()
+  const [createPost, { isLoading, reset }] = useCreatePostMutation()
 
   return (
     <form
@@ -54,22 +53,13 @@ const CreatePostSection = () => {
         placeholder="Content here"
       />
       <ActionButtons>
-        <Button text="Create" disabled={!isFormValid} loading={isLoading} />
+        <Button
+          text="Create"
+          disabled={!isFormValid}
+          loading={isLoading}
+          loadingText="Creating"
+        />
       </ActionButtons>
-      <div
-        className={`${styles.feedbackContainer} ${isSuccess || error ? styles.showFeedbackContainer : styles.hideFeedbackContainer}`}
-      >
-        {isSuccess && (
-          <p className={`${styles.feedback} ${styles.feedbackSuccess}`}>
-            ✅ Post created!
-          </p>
-        )}
-        {error && (
-          <p className={`${styles.feedback} ${styles.feedbackError}`}>
-            ❌ Failed to create post.
-          </p>
-        )}
-      </div>
     </form>
   )
 }

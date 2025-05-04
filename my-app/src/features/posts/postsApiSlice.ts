@@ -60,7 +60,7 @@ export const postsApiSlice = createApi({
     }),
     deletePost: build.mutation<undefined, number>({
       query: postId => ({
-        url: "/" + postId.toString(),
+        url: "/" + postId.toString() + "/",
         method: "DELETE",
       }),
       invalidatesTags: [{ type: "Posts", id: "LIST" }],

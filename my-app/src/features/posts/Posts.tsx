@@ -27,7 +27,7 @@ export const Posts = (): JSX.Element | null => {
   if (isSuccess) {
     return (
       <div className={styles.container}>
-        <Header title="CodeLeap Network" type={1} />
+        <Header title="CodeLeap Network" />
         <div className={styles.content}>
           <CreatePostSection />
           <div className={styles.postsSection}>

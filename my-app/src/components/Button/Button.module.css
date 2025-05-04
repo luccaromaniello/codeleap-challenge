@@ -18,6 +18,17 @@
   color: var(--color-neutral-white);
 }
 
+.secondary {
+  background-color: var(--color-neutral-white);
+  color: var(--color-primary-text);
+  border: 1px solid var(--color-neutral-tertiary);
+}
+
+.destructive {
+  background-color: var(--color-feedback-error);
+  color: var(--color-neutral-white);
+}
+
 .button:hover {
   opacity: 0.8;
 }

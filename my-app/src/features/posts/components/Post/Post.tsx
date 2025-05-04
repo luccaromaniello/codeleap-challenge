@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../../../app/hooks"
 import styles from "./Post.module.css"
 import deleteIcon from "../../../../assets/icons/delete.svg"
 import editIcon from "../../../../assets/icons/edit.svg"
+import DeletePostModal from "../DeletePostModal/DeletePostModal"
 
 type PostProps = {
   post: PostInfo
@@ -23,7 +24,6 @@ const Post: React.FC<PostProps> = ({ post }) => {
             <button
               className={styles.actionButton}
               onClick={() => {
-                console.log("handled")
                 dispatch(setPostId(post.id))
                 dispatch(openModal())
               }}
@@ -51,6 +51,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
         content={post.content}
         date={post.createdAt}
       />
+      <DeletePostModal />
     </div>
   )
 }
