@@ -1,4 +1,4 @@
-import styles from "./Textarea.module.css"
+import styles from "./TextArea.module.css"
 
 type TextareaProps = {
   label: string
