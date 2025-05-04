@@ -32,18 +32,24 @@ export const Posts = (): JSX.Element | null => {
           <CreatePostSection />
           <div className={styles.postsSection}>
             {data.length != 0 ? (
-              data.map(({ id, username, title, content, createdAt }) => (
-                <Post
-                  key={id}
-                  post={{
-                    id: id,
-                    username: username,
-                    title: title,
-                    content: content,
-                    createdAt: createdAt,
-                  }}
-                />
-              ))
+              [...data]
+                .sort(
+                  (a, b) =>
+                    new Date(b.createdAt).getTime() -
+                    new Date(a.createdAt).getTime(),
+                )
+                .map(({ id, username, title, content, createdAt }) => (
+                  <Post
+                    key={id}
+                    post={{
+                      id: id,
+                      username: username,
+                      title: title,
+                      content: content,
+                      createdAt: createdAt,
+                    }}
+                  />
+                ))
             ) : (
               <p>No posts to show.</p>
             )}
