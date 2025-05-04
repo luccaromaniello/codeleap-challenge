@@ -13,8 +13,7 @@ type ButtonProps = {
 export enum ButtonType {
   PRIMARY = 0,
   SECONDARY = 1,
-  TEXT = 2,
-  DESTRUCTIVE = 3,
+  DESTRUCTIVE = 2,
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -34,17 +33,6 @@ const Button: React.FC<ButtonProps> = ({
           onClick={onClick}
           disabled={disabled || loading}
           className={`${styles.button} ${styles.secondary} ${disabled || loading ? styles.disabled : ""}`}
-        >
-          {loading ? loadingText : text}
-        </button>
-      )
-    case ButtonType.TEXT:
-      return (
-        <button
-          type={semanticType}
-          onClick={onClick}
-          disabled={disabled || loading}
-          className={`${styles.button} ${styles.text} ${disabled || loading ? styles.disabled : ""}`}
         >
           {loading ? loadingText : text}
         </button>
