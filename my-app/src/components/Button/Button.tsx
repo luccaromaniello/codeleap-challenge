@@ -14,6 +14,7 @@ export enum ButtonType {
   PRIMARY = 0,
   SECONDARY = 1,
   DESTRUCTIVE = 2,
+  SUCCESS = 3,
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -44,6 +45,17 @@ const Button: React.FC<ButtonProps> = ({
           onClick={onClick}
           disabled={disabled || loading}
           className={`${styles.button} ${styles.destructive} ${disabled || loading ? styles.disabled : ""}`}
+        >
+          {loading ? loadingText : text}
+        </button>
+      )
+    case ButtonType.SUCCESS:
+      return (
+        <button
+          type="submit"
+          onClick={onClick}
+          disabled={disabled || loading}
+          className={`${styles.button} ${styles.success} ${disabled || loading ? styles.disabled : ""}`}
         >
           {loading ? loadingText : text}
         </button>
