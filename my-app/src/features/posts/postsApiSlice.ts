@@ -31,13 +31,12 @@ type NewPost = {
 }
 
 // This is not being used in this example since we're only worried about the posts list. Ideally, the response might contain other information that could be mapped.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type PostsApiResponse = {
-  results: ApiPost[]
-  total: number
-  skip: number
-  limit: number
-}
+// type PostsApiResponse = {
+//   results: ApiPost[]
+//   total: number
+//   skip: number
+//   limit: number
+// }
 
 export const postsApiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://dev.codeleap.co.uk/careers/" }),
