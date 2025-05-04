@@ -6,6 +6,7 @@ import styles from "./Post.module.css"
 import deleteIcon from "../../../../assets/icons/delete.svg"
 import editIcon from "../../../../assets/icons/edit.svg"
 import DeletePostModal from "../DeletePostModal/DeletePostModal"
+import EditPostModal from "../EditPostModal/EditPostModal"
 
 type PostProps = {
   post: PostInfo
@@ -14,6 +15,7 @@ type PostProps = {
 const Post: React.FC<PostProps> = ({ post }) => {
   const dispatch = useAppDispatch()
   const currentUser = useAppSelector(state => state.user.username)
+  const modal = useAppSelector(state => state.posts)
 
   return (
     <div>
@@ -55,7 +57,8 @@ const Post: React.FC<PostProps> = ({ post }) => {
         content={post.content}
         date={post.createdAt}
       />
-      <DeletePostModal />
+      {modal.isOpen && modal.type === ModalType.DELETE && <DeletePostModal />}
+      {modal.isOpen && modal.type === ModalType.EDIT && <EditPostModal />}
     </div>
   )
 }
